@@ -21,7 +21,7 @@ export class PaginationService {
   showEvent = this.eventOfPaginate.asObservable();
 
   getPagesInPaginate(pages, currentPage:  number = 1,
-           pageDistance: number = valSetting.DEFAULT_PAGE_SPACE,
+           pageDistance: number = valSetting.DEFAULT_PAGE_DISTANCE,
            pageSize: number = valSetting.DEFAULT_PAGE_SIZE) {
 
     //Get Pages
