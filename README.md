@@ -4,7 +4,7 @@ service pagination angular
 
 #Using pagination service
 
-####Samples
+* Samples
 ```
 frontend/samples/request/list_samples.component.ts
 ```
@@ -18,15 +18,15 @@ constructor(
 
 ```
 
-#####Add selector with html 
+* Add selector with html 
 
 ```
 <app-pagination></app-pagination>
 ```
 
-#####set pages in pagination
+* set pages in pagination
 
-```apple js
+```apple jsgi
 this.paginationService.getPagesInPaginate(totalPages, currentPages?, pageDistance? , pageSize?);
 //pageDistance -- distance from first or last page to current page 
 //pageSize -- Number items in on page
@@ -34,7 +34,7 @@ can add default currentPages, pageDistance, pageSize in PaginationService
 ```
 
 
-#####LISTENING CURRENT_PAGES WHEN CLICKED
+* LISTENING CURRENT_PAGES WHEN CLICKED
 ```apple js
 this.paginationService.getCurrentPages.subscribe(currentPage => {
       //To Do somethings
@@ -42,17 +42,17 @@ this.paginationService.getCurrentPages.subscribe(currentPage => {
       
 ```
 
-###BONUS
+#BONUS
 
 
-#####GO FIRST OR LAST PAGES 
+* GO FIRST OR LAST PAGES 
 ```apple js
  method 'eventOfPagination' in pagination service 
 ```
 
 
-#####RESET CURRENT PAGES
-######(EX: When changed select)
+* RESET CURRENT PAGES
+(EX: When changed select)
 ```apple js
  this.paginationService.resetCurrenPage(number);
 ```
