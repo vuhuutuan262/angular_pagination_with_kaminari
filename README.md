@@ -1,0 +1,2 @@
+# angular_pagination_with_kaminari
+service pagination angular
