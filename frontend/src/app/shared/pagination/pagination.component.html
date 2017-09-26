@@ -1,0 +1,13 @@
+<ul class="pagination" *ngIf="canJumpPage">
+  <li (click)="eventOfPagination(true, true)"> << </li>
+  <li (click)="eventOfPagination(true, false)"> < </li>
+</ul>
+
+<ul *ngFor="let page of pages" class="pagination">
+  <li (click)="selectPagination(page)">{{ page }}</li>
+</ul>
+
+<ul class="pagination" *ngIf="canJumpPage">
+  <li (click)="eventOfPagination(false, false)"> > </li>
+  <li (click)="eventOfPagination(false, true)"> >> </li>
+</ul>

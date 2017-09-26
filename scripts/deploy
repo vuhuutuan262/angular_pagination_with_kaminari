@@ -1,0 +1,172 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import json
+import time
+import sys
+import os
+import subprocess
+import boto3
+
+OVERRIDES = '''
+{
+    "containerOverrides": [
+        {
+            "name": "est_web",
+            "command": [
+                "rails",
+                "db:migrate"
+            ],
+            "environment": [
+                {
+                    "name": "DATABASE_HOSTNAME",
+                    "value": "est-staging.cluster-czqdlrm3rcyh.ap-northeast-1.rds.amazonaws.com"
+                },
+                {
+                    "name": "DATABASE_USERNAME",
+                    "value": "est"
+                },
+                {
+                    "name": "DATABASE_PASSWORD",
+                    "value": "hoge12345"
+                }
+           ]
+        }
+    ]
+}
+'''
+
+def setup_env_vars():
+    os.environ["AWS_ACCOUNT_ID_STAGING"] = "667009429896"
+    os.environ["ENVIRONMENT"] = "staging"
+    os.environ["RAILS_ENV"] = "staging"
+    os.environ["CLUSTER_NAME"] = "est-staging"
+    os.environ["JOB_CLUSTER_NAME"] = "est-job-staging"
+    os.environ["AWS_ACCOUNT_ID"] = os.environ["AWS_ACCOUNT_ID_STAGING"]
+    os.environ["AWS_REGION"] = "ap-northeast-1"
+    os.environ["APP_NAME"] = "est_web"
+    os.environ["TAG"] = "latest"
+    os.environ["TASK_ROLE"] = "app"
+
+def setup_family_env_var():
+    os.environ["FAMILY"] = "{0}_{1}_{2}".format(os.environ["ENVIRONMENT"], os.environ["APP_NAME"], os.environ["TASK_ROLE"])
+
+def make_task_def(task_role):
+    os.environ["TASK_ROLE"] = task_role
+    setup_family_env_var()
+    return json.loads(subprocess.check_output("cat ./task_definition.json | envsubst", shell = True, universal_newlines=True))
+
+def register_task_definition(task_definition):
+    print(task_definition)
+
+    client = boto3.client("ecs")
+    result = client.register_task_definition(
+        family = task_definition["family"],
+        taskRoleArn = task_definition["taskRoleArn"],
+        networkMode = task_definition["networkMode"],
+        containerDefinitions = task_definition["containerDefinitions"],
+        volumes = task_definition["volumes"],
+        placementConstraints = task_definition["placementConstraints"]
+    )
+    return result["taskDefinition"]
+
+def run_migration(task_definition):
+    print(task_definition)
+
+    client = boto3.client("ecs")
+    print("start run task")
+    run_task_response = client.run_task(
+        cluster = os.environ["JOB_CLUSTER_NAME"],
+        taskDefinition = "{0}:{1}".format(task_definition["family"], task_definition["revision"]),
+        overrides = json.loads(OVERRIDES),
+        group = "family:{0}-migration".format(task_definition["family"])
+    )
+    print(run_task_response)
+    print("end run task")
+
+    stopped = False
+    for i in range(360):
+        print(str(i + 1) + " times")
+        describe_tasks_response = client.describe_tasks(
+            cluster = run_task_response["tasks"][0]["clusterArn"],
+            tasks = [
+                run_task_response["tasks"][0]["taskArn"]
+            ]
+        )
+        print(describe_tasks_response)
+        last_status = describe_tasks_response["tasks"][0]["lastStatus"]
+        print(last_status)
+
+        if last_status == "STOPPED":
+            stopped = True
+            break
+
+        time.sleep(5)
+
+    if stopped:
+        print("Success")
+        return 0
+    else:
+        print("Timeout")
+        return 1
+
+def update_service(task_definition):
+    print(task_definition)
+
+    client = boto3.client("ecs")
+    new_task_definition = task_definition["taskDefinitionArn"]
+    print(new_task_definition)
+    print("start update service")
+    update_service_response = client.update_service(
+        cluster = os.environ["CLUSTER_NAME"],
+        service = os.environ["APP_NAME"],
+        taskDefinition = new_task_definition
+    )
+    print(update_service_response)
+    print("end update service")
+
+    deployed = False
+    for i in range(360):
+        print(str(i + 1) + " times")
+        describe_services_response = client.describe_services(
+            cluster = os.environ["CLUSTER_NAME"],
+            services = [
+                os.environ["APP_NAME"]
+            ]
+        )
+        print(describe_services_response)
+
+        deployments = describe_services_response["services"][0]["deployments"]
+        slate = False
+        for d in deployments:
+            print(d["taskDefinition"])
+            print(d)
+            if d["taskDefinition"] != new_task_definition:
+                slate = True
+
+        if slate == False:
+            deployed = True
+            break
+
+        time.sleep(5)
+
+    if deployed:
+        print("Success")
+        return 0
+    else:
+        print("Timeout")
+        return 1
+
+print("start deploy")
+setup_env_vars()
+task_definition = register_task_definition(make_task_def("migration"))
+result = run_migration(task_definition)
+if result != 0:
+    sys.exit(result)
+
+task_definition = register_task_definition(make_task_def("app"))
+result = update_service(task_definition)
+if result != 0:
+    sys.exit(result)
+
+print("end deploy")
+sys.exit(0)

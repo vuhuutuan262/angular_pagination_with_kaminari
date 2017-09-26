@@ -1,0 +1,14 @@
+#! /bin/bash
+set -e
+
+AWS_REGION=ap-northeast-1
+SERVICE_NAME=est_web
+
+ENVS=(
+    "MYSQL_USER_PASSWORD"
+    )
+
+case $RAILS_ENV in
+  'staging' ) ENVIRONMENT=stg ;;
+  'production' ) ENVIRONMENT=prod ;;
+esac

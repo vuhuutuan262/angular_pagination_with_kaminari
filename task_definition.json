@@ -1,0 +1,47 @@
+{
+  "networkMode": "bridge",
+  "taskRoleArn": "arn:aws:iam::${AWS_ACCOUNT_ID}:role/containers/est-ecs-task-default-${ENVIRONMENT}",
+  "containerDefinitions": [
+    {
+      "disableNetworking": false,
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "containerPort": 3000,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "name": "${APP_NAME}",
+      "environment": [
+        {
+          "name": "RAILS_ENV",
+          "value": "${RAILS_ENV}"
+        },
+        {
+          "name": "RAILS_LOG_TO_STDOUT",
+          "value": "true"
+        },
+        {
+          "name": "RAILS_SERVE_STATIC_FILES",
+          "value": "true"
+        }
+      ],
+      "image": "${AWS_ACCOUNT_ID_STAGING}.dkr.ecr.${AWS_REGION}.amazonaws.com/${APP_NAME}:${TAG}",
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "${ENVIRONMENT}_${APP_NAME}",
+          "awslogs-region": "${AWS_REGION}",
+          "awslogs-stream-prefix": "${TASK_ROLE}"
+        }
+      },
+      "cpu": 1000,
+      "privileged": false,
+      "memoryReservation": 500
+    }
+  ],
+  "volumes": [],
+  "family": "${FAMILY}",
+  "placementConstraints": []
+}

@@ -1,0 +1,274 @@
+{
+  "form": {
+    "name": "氏名",
+    "email": "メールアドレス",
+    "phone": "電話番号または携帯電話",
+    "password": "パスワード",
+    "submit": "登録する",
+    "send": "送信する",
+    "update": "更新する",
+    "login": "ログインする",
+    "oldPassword": "現在のパスワード",
+    "newPassword": "新しいパスワード",
+    "newPasswordConfirm": "新しいパスワード(確認)",
+    "require": "必須",
+    "newEmail": "新しいメールアドレス"
+  },
+  "auth": {
+    "signUp": {
+      "header": "新規登録",
+      "placeholder": {
+        "name": "例）金前　太郎",
+        "email": "メールアドレスを入力してください",
+        "phone": "ハイフンなし半角数字",
+        "password": "半角英数 8文字以上"
+      },
+      "note": "下記項目に同意の上、お進みください",
+      "terms": "利用規約について",
+      "privacy": "個人情報の取扱について",
+      "signIn": "すでにアカウントをお持ちの方はこちら",
+      "errorMessages": {
+        "name": {
+          "required": "入力してください。",
+          "whitespace": "入力してください。"
+        },
+        "email": {
+          "required": "入力してください。",
+          "pattern": "正しいメールアドレスを入力してください。",
+          "halfsizePattern": "正しいメールアドレスを入力してください。"
+        },
+        "phone": {
+          "required": "入力してください。",
+          "lengthInRange": "ハイフンなし半角数字(7～15桁)で入力してください。",
+          "pattern": "ハイフンなし半角数字(7～15桁)で入力してください。"
+        },
+        "password": {
+          "required": "入力してください。",
+          "pattern": "半角英数 8文字以上で入力してください。"
+        }
+      }
+    },
+    "signIn": {
+      "logo": "MFクラウド会社設立サービス",
+      "signUp": "新規登録はこちら",
+      "forgotPassword": "パスワードを忘れた方はこちら",
+      "errorMessages": {
+        "email": {
+          "required": "入力してください。",
+          "pattern": "正しいメールアドレスを入力してください。"
+        },
+        "password": {
+          "required": "入力してください。"
+        }
+      }
+    }
+  },
+
+  "user": {
+    "header": {
+      "logo": "MFクラウド会社設立",
+      "faqs": "よくあるご質問",
+      "contact": "お問い合わせ",
+      "account": "ユーザー情報の編集",
+      "signOut": "ログアウト"
+    },
+    "updatePassword": {
+      "expiredToken": "URLの有効期限が切れているため、はじめからやり直してください。",
+      "title": "パスワードの再設定",
+      "description": "新しいパスワードを設定してください。",
+      "errorMessages": {
+        "email": {
+          "required": "入力してください。",
+          "pattern": "正しいメールアドレスを入力してください。"
+        },
+        "newPassword": {
+          "required": "入力してください。",
+          "pattern": "半角英数 8文字以上で入力してください。"
+        },
+        "newPasswordConfirm": {
+          "required": "入力してください。",
+          "pattern": "半角英数 8文字以上で入力してください。",
+          "matchPassword": "新しいパスワードが一致していません。"
+        }
+      }
+    },
+    "passwordChange": {
+      "title": "パスワードの変更",
+      "description": "新しいパスワードを設定してください。",
+      "successMessage": "パスワードが変更されました。",
+      "errorMessages": {
+        "email": {
+          "required": "入力してください。",
+          "pattern": "正しいメールアドレスを入力してください。"
+        },
+        "oldPassword": {
+          "required": "入力してください。",
+          "pattern": "半角英数 8文字以上で入力してください。"
+        },
+        "newPassword": {
+          "required": "入力してください。",
+          "pattern": "半角英数 8文字以上で入力してください。"
+        },
+        "newPasswordConfirm": {
+          "required": "入力してください。",
+          "pattern": "半角英数 8文字以上で入力してください。",
+          "matchPassword": "新しいパスワードが一致していません。"
+        }
+      }
+    },
+    "resetPassword": {
+      "title": "パスワードリセット",
+      "submited_message": "パスワードの再設定について数分以内にメールでご連絡いたします。",
+      "description": "パスワードの再設定に必要な情報を<br>このメールアドレス宛に送信します。",
+      "placeholder": {
+        "email": "メールアドレスを入力してください"
+      },
+      "errorMessages": {
+        "email": {
+          "required": "入力してください。",
+          "pattern": "正しいメールアドレスを入力してください。"
+        }
+      }
+    },
+    "account": {
+      "email": {
+        "title": "メールアドレスの変更",
+        "description": "新しいメールアドレスを設定してください。",
+        "successMessage": "メールアドレスが変更されました。",
+        "errorMessages": {
+          "currentEmail": {
+            "required": "入力してください。",
+            "pattern": "正しいメールアドレスを入力してください。"
+          },
+          "currentPassword": {
+            "required": "入力してください。",
+            "pattern": "半角英数 8文字以上で入力してください。"
+          },
+          "newEmail": {
+            "required": "入力してください。",
+            "pattern": "正しいメールアドレスを入力してください。",
+            "uniqueEmail": "メールアドレスは既に登録済みです。"
+          }
+        }
+      }
+    },
+    "updateInformation": {
+      "title": "ユーザー情報の編集",
+      "deleteAccount": "退会する",
+      "changeEmail": "メールアドレスを変更する",
+      "changePassword": "パスワードを変更する",
+      "successMessage": "ユーザー情報が更新されました。",
+      "description": "すでにパートナーへ依頼をしている場合は、\n 更新前の登録情報がパートナーへ共有されています",
+      "errorMessages": {
+        "name": {
+          "required": "入力してください。"
+        },
+        "phone": {
+          "required": "入力してください。",
+          "lengthInRange": "ハイフンなし半角数字(7～15桁)で入力してください。",
+          "pattern": "ハイフンなし半角数字(7～15桁)で入力してください。"
+        }
+      }
+    },
+    "request": {
+      "introduction": {
+        "title-pc": "パートナーを探し、スムーズに会社設立をしましょう",
+        "title-sp": "パートナーを探し\nスムーズに会社設立をしましょう",
+        "withoutPartner": "1人で会社設立をする場合",
+        "withPartner": "パートナーに依頼する場合",
+        "next": "会社設立パートナーを探す"
+      }
+    }
+  },
+  "partners": {
+    "header": {
+      "logo": "MFクラウド会社設立",
+      "title": "会社設立サービス | パートナー",
+      "faqs": "よくあるご質問",
+      "contact": "お問い合わせ",
+      "account": "パートナー情報の編集",
+      "signOut": "ログアウト"
+    },
+    "auth": {
+      "sign_in": {
+        "title": "パートナーログインページ"
+      }
+    },
+    "account": {
+      "index": {
+        "title": "パートナー情報の編集",
+        "updateEmail": "メールアドレスを変更する",
+        "updatePassword": "パスワードを変更する",
+        "successMessage": "パートナー情報が更新されました。",
+        "errorMessages": {
+          "phone": {
+            "required": "入力してください。",
+            "lengthInRange": "ハイフンなし半角数字(7～15桁)で入力してください。",
+            "pattern": "ハイフンなし半角数字(7～15桁)で入力してください。"
+          }
+        }
+      },
+      "email": {
+        "title": "メールアドレスの変更",
+        "description": "新しいメールアドレスを設定してください。",
+        "successMessage": "メールアドレスが変更されました。",
+        "errorMessages": {
+          "currentEmail": {
+            "required": "入力してください。",
+            "pattern": "正しいメールアドレスを入力してください。"
+          },
+          "currentPassword": {
+            "required": "入力してください。",
+            "pattern": "半角英数 8文字以上で入力してください。"
+          },
+          "newEmail": {
+            "required": "入力してください。",
+            "pattern": "正しいメールアドレスを入力してください。",
+            "uniqueEmail": "メールアドレスは既に登録済みです。"
+          }
+        }
+      },
+      "password": {
+        "title": "パスワードの変更",
+        "description": "新しいパスワードを設定してください。",
+        "successMessage": "パスワードが変更されました。",
+        "errorMessages": {
+          "email": {
+            "required": "入力してください。",
+            "pattern": "正しいメールアドレスを入力してください。"
+          },
+          "oldPassword": {
+            "required": "入力してください。",
+            "pattern": "半角英数 8文字以上で入力してください。"
+          },
+          "newPassword": {
+            "required": "入力してください。",
+            "pattern": "半角英数 8文字以上で入力してください。"
+          },
+          "newPasswordConfirm": {
+            "required": "入力してください。",
+            "pattern": "半角英数 8文字以上で入力してください。",
+            "matchPassword": "新しいパスワードが一致していません。"
+          }
+        }
+      }
+    },
+    "userRequests": {
+      "editPartnerInfo": "掲載情報の編集",
+      "filter": "絞り込み：",
+      "partnerId": "パートナーID :",
+      "userRequestId": "依頼No.",
+      "userRequestName": "氏名",
+      "userRequestDate": "依頼日",
+      "userRequestState": "依頼状況"
+    }
+  },
+  "admins": {
+    "header": {
+      "logo": "MFクラウド会社設立",
+      "title": "会社設立サービス | Aweb",
+      "password": "パスワードの変更",
+      "signOut": "ログアウト"
+    }
+  }
+}

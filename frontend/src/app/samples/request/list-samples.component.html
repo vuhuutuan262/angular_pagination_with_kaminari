@@ -1,0 +1,6 @@
+
+<select #t (change)="changedState(t.value)">
+  <option *ngFor="let i of items" value="{{i.key}}">{{i.value}}</option>
+</select>
+
+<app-pagination></app-pagination>

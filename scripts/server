@@ -1,0 +1,12 @@
+#! /bin/bash
+set -eu
+set -o pipefail
+
+PWD=`dirname $0`
+APP_DIR="$PWD/../"
+
+# Export env vars if needed
+$($PWD/env)
+
+rm -f $APP_DIR/tmp/pids/server.pid
+$APP_DIR/bin/rails server -p 3000 -b '0.0.0.0'
