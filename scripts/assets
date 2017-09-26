@@ -1,0 +1,11 @@
+#! /bin/bash
+set -eu
+set -o pipefail
+
+PWD=`dirname $0`
+
+# Export env vars if needed
+$($PWD/env)
+
+cd /cache && cp -p /app/package.json ./ && npm run build && rm package.json
+cd /app && /app/bin/rails assets:precompile

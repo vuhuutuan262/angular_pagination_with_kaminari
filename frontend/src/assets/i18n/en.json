@@ -1,0 +1,275 @@
+{
+  "form": {
+    "name": "Name",
+    "email": "Email address",
+    "phone": "Home phone or mobile phone number",
+    "password": "Password",
+    "submit": "Register",
+    "send": "Send",
+    "update": "Update",
+    "login": "Sign in",
+    "oldPassword": "Current password",
+    "newPassword": "New password",
+    "newPasswordConfirm": "Confirm new password",
+    "require": "Required",
+    "newEmail": "New email address"
+  },
+  "auth": {
+    "signUp": {
+      "header": "Sign up",
+      "placeholder": {
+        "name": "e.g. John Smith",
+        "email": "Please enter email address",
+        "phone": "Half-width numbers without hyphens",
+        "password": "8 or more half-width alphanumeric characters"
+      },
+      "note": "By clicking Register, you agree to our terms of use and privacy policy.",
+      "terms": "Terms of use",
+      "privacy": "Privacy policy",
+      "signIn": "Already have an account?",
+      "errorMessages": {
+        "name": {
+          "required": "Please enter this form.",
+          "whitespace": "Please enter this form."
+        },
+        "email": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter email address correctly.",
+          "halfsizePattern": "Please enter email address correctly.",
+          "uniqueEmail": "This email address is already registered. Please sign in."
+        },
+        "phone": {
+          "required": "Please enter this form.",
+          "lengthInRange": "Please enter 7 to 15 half-width numbers without hyphens",
+          "pattern": "Please enter 7 to 15 half-width numbers without hyphens"
+        },
+        "password": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter 8 or more half-width alphanumeric characters."
+        }
+      }
+    },
+    "signIn": {
+      "logo": "MF Cloud Establish Companies",
+      "signUp": "Sign up",
+      "forgotPassword": "Forgot password?",
+      "errorMessages": {
+        "email": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter email address correctly."
+        },
+        "password": {
+          "required": "Please enter this form."
+        }
+      }
+    }
+  },
+
+  "user": {
+    "header": {
+      "logo": "MF Cloud Establish Companies",
+      "faqs": "FAQ",
+      "contact": "Contact",
+      "account": "Update user information",
+      "signOut": "Sign out"
+    },
+    "updatePassword": {
+      "expiredToken": "The URL has expired. Please try again.",
+      "title": "Reset password",
+      "description": "Please set up your new password.",
+      "errorMessages": {
+        "email": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter email address correctly."
+        },
+        "newPassword": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter 8 or more half-width alphanumeric characters."
+        },
+        "newPasswordConfirm": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter 8 or more half-width alphanumeric characters.",
+          "matchPassword": "New passwords do not match."
+        }
+      }
+    },
+    "passwordChange": {
+      "title": "Update password",
+      "description": "Please set up new password.",
+      "successMessage": "Your password has been updated.",
+      "errorMessages": {
+        "email": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter email address correctly."
+        },
+        "oldPassword": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter 8 or more half-width alphanumeric characters."
+        },
+        "newPassword": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter 8 or more half-width alphanumeric characters."
+        },
+        "newPasswordConfirm": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter 8 or more half-width alphanumeric characters.",
+          "matchPassword": "New passwords do not match."
+        }
+      }
+    },
+    "resetPassword": {
+      "title": "Reset password",
+      "submited_message": "In a few minutes, you will receive an email with link to reset your password.",
+      "description": "We will send information to reset password to this email address.",
+      "placeholder": {
+        "email": "Please enter email address"
+      },
+      "errorMessages": {
+        "email": {
+          "required": "Please enter this form.",
+          "pattern": "Please enter email address correctly."
+        }
+      }
+    },
+    "account": {
+      "email": {
+        "title": "Update email address",
+        "description": "Please set up new email address.",
+        "successMessage": "Your email address has been updated.",
+        "errorMessages": {
+          "currentEmail": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter email address correctly."
+          },
+          "currentPassword": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter 8 or more half-width alphanumeric characters."
+          },
+          "newEmail": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter email address correctly.",
+            "uniqueEmail": "This email address is already registered."
+          }
+        }
+      }
+    },
+    "updateInformation": {
+      "title": "Update user information",
+      "deleteAccount": "Close my account",
+      "changeEmail": "Update email address",
+      "changePassword": "Update password",
+      "successMessage": "Your user information has been updated.",
+      "description": "If you already made a request,\nthe information before updating was already sent to your partner.",
+      "errorMessages": {
+        "name": {
+          "required": "Please enter this form."
+        },
+        "phone": {
+          "required": "Please enter this form.",
+          "lengthInRange": "Please enter 7 to 15 half-width numbers without hyphens",
+          "pattern": "Please enter 7 to 15 half-width numbers without hyphens"
+        }
+      }
+    },
+    "request": {
+      "introduction": {
+        "title-pc": "Find your partner, Establish your company quickly",
+        "title-sp": "Find your partner,\nEstablish your company quickly",
+        "withoutPartner": "Establish company by yourself",
+        "withPartner": "Request a partner to establish company",
+        "next": "Find your partner"
+      }
+    }
+  },
+  "partners": {
+    "header": {
+      "logo": "MF Cloud Establish Companies",
+      "title": "Partners",
+      "faqs": "FAQ",
+      "contact": "Contact",
+      "account": "Update partner information",
+      "signOut": "Sign out"
+    },
+    "auth": {
+      "sign_in": {
+        "title": "Partners' sign in page"
+      }
+    },
+    "account": {
+      "index": {
+        "title": "Update partner information",
+        "updateEmail": "Update email address",
+        "updatePassword": "Update password",
+        "successMessage": "Your partner information has been updated.",
+        "errorMessages": {
+          "phone": {
+            "required": "Please enter this form.",
+            "lengthInRange": "Please enter 7 to 15 half-width numbers without hyphens",
+            "pattern": "Please enter 7 to 15 half-width numbers without hyphens"
+          }
+        }
+      },
+      "email": {
+        "title": "Update email address",
+        "description": "Please set up new email address.",
+        "successMessage": "Your email address has been updated.",
+        "errorMessages": {
+          "currentEmail": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter email address correctly."
+          },
+          "currentPassword": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter 8 or more half-width alphanumeric characters."
+          },
+          "newEmail": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter email address correctly.",
+            "uniqueEmail": "This email address is already registered."
+          }
+        }
+      },
+      "password": {
+        "title": "Update password",
+        "description": "Please set up new password.",
+        "successMessage": "Your password has been updated.",
+        "errorMessages": {
+          "email": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter email address correctly."
+          },
+          "oldPassword": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter 8 or more half-width alphanumeric characters."
+          },
+          "newPassword": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter 8 or more half-width alphanumeric characters."
+          },
+          "newPasswordConfirm": {
+            "required": "Please enter this form.",
+            "pattern": "Please enter 8 or more half-width alphanumeric characters.",
+            "matchPassword": "New passwords do not match."
+          }
+        }
+      }
+    },
+    "userRequests": {
+      "editPartnerInfo": "Edit partner's information",
+      "filter": "Filter：",
+      "partnerId": "Partner ID :",
+      "userRequestId": "RequestNo.",
+      "userRequestName": "Name",
+      "userRequestDate": "Requested at",
+      "userRequestState": "Status"
+    }
+  },
+  "admins": {
+    "header": {
+      "logo": "MF Cloud Establish Companies",
+      "title": "Admins",
+      "password": "Update password",
+      "signOut": "Sign out"
+    }
+  }
+}

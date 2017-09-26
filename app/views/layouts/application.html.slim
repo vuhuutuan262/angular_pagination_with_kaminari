@@ -1,0 +1,11 @@
+doctype html
+html lang="ja"
+  head
+    meta name = "viewport" content = "width=device-width"
+    title MFクラウド会社設立
+    = csrf_meta_tags
+    base href="/"
+    = stylesheet_link_tag "application", media: "all"
+    = javascript_include_tag "application"
+  body
+    == yield

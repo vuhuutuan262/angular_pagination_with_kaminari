@@ -1,0 +1,123 @@
+ja:
+  activerecord:
+    attributes:
+      doorkeeper/application:
+        name: "Name"
+        redirect_uri: "Redirect URI"
+    errors:
+      models:
+        doorkeeper/application:
+          attributes:
+            redirect_uri:
+              fragment_present: "cannot contain a fragment."
+              invalid_uri: "must be a valid URI."
+              relative_uri: "must be an absolute URI."
+              secured_uri: "must be an HTTPS/SSL URI."
+
+  doorkeeper:
+    applications:
+      confirmations:
+        destroy: "Are you sure?"
+      buttons:
+        edit: "Edit"
+        destroy: "Destroy"
+        submit: "Submit"
+        cancel: "Cancel"
+        authorize: "Authorize"
+      form:
+        error: "Whoops! Check your form for possible errors"
+      help:
+        redirect_uri: "Use one line per URI"
+        native_redirect_uri: "Use %{native_redirect_uri} for local tests"
+        scopes: "Separate scopes with spaces. Leave blank to use the default scopes."
+      edit:
+        title: "Edit application"
+      index:
+        title: "Your applications"
+        new: "New Application"
+        name: "Name"
+        callback_url: "Callback URL"
+      new:
+        title: "New Application"
+      show:
+        title: "Application: %{name}"
+        application_id: "Application Id"
+        secret: "Secret"
+        scopes: "Scopes"
+        callback_urls: "Callback urls"
+        actions: "Actions"
+
+    authorizations:
+      buttons:
+        authorize: "Authorize"
+        deny: "Deny"
+      error:
+        title: "An error has occurred"
+      new:
+        title: "Authorization required"
+        prompt: "Authorize %{client_name} to use your account?"
+        able_to: "This application will be able to"
+      show:
+        title: "Authorization code"
+
+    authorized_applications:
+      confirmations:
+        revoke: "Are you sure?"
+      buttons:
+        revoke: "Revoke"
+      index:
+        title: "Your authorized applications"
+        application: "Application"
+        created_at: "Created At"
+        date_format: "%Y-%m-%d %H:%M:%S"
+
+    errors:
+      messages:
+        invalid_request: "必須パラメータが不足しているか、サポートされていないパラメータが含まれているか、もしくはパラメータが不正であるため、リクエストを処理できませんでした。"
+        invalid_redirect_uri: "含まれるリダイレクトURIが正しくありません。"
+        unauthorized_client: "クライアントはこのメソッドを用いたリクエストを実行する権限がありません。"
+        access_denied: "リソースオーナーもしくは認可サーバがリクエストを拒否しました。"
+        invalid_scope: "指定されたスコープが無効か、不明か、もしくは正しくありません。"
+        server_error: "予期せぬ事態が発生したため、認可サーバはリクエストを処理できませんでした。"
+        temporarily_unavailable: "認可サーバが一時的に高負荷な状態にあるか、もしくはメンテナンス中であるため、リクエストを処理できません。"
+
+        #configuration error messages
+        credential_flow_not_configured: "Doorkeeper.configure.resource_owner_from_credentialsが設定されていないため、リソースオーナーパスワードクレデンシャルフローは失敗しました。"
+        resource_owner_authenticator_not_configured: "Doorkeeper.configure.resource_owner_authenticatorが設定されていないため、リソースオーナーの取得に失敗しました。"
+
+        # Access grant errors
+        unsupported_response_type: "認可サーバは指定されたレスポンスタイプをサポートしていません。"
+
+        # Access token errors
+        invalid_client: "クライアントが不明か、クライアント認証が含まれていないか、もしくは認証メソッドがサポートされていないため、クライアント認証は失敗しました。"
+        invalid_grant: "指定された認可グラントは不正か、有効期限切れか、無効か、リダイレクトURIが異なるか、もしくは別のクライアントに適用されています。"
+        unsupported_grant_type: "この認可グラントのタイプは認可サーバではサポートされていません。"
+
+        # Password Access token errors
+        invalid_resource_owner: "指定されたリソースオーナークレデンシャルが不正か、もしくはリソースオーナーが見つかりません。"
+
+        invalid_token:
+          revoked: "アクセストークンが取り消されました"
+          expired: "アクセストークンの有効期限が切れました"
+          unknown: "アクセストークンが無効です"
+
+    flash:
+      applications:
+        create:
+          notice: "Application created."
+        destroy:
+          notice: "Application deleted."
+        update:
+          notice: "Application updated."
+      authorized_applications:
+        destroy:
+          notice: "Application revoked."
+
+    layouts:
+      admin:
+        nav:
+          oauth2_provider: "OAuth2 Provider"
+          applications: "Applications"
+          home: "Home"
+      application:
+        title: "OAuth authorization required"

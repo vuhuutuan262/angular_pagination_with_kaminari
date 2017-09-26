@@ -1,0 +1,34 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pip install boto3
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - $(aws ecr get-login --region $AWS_REGION)
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - REPO_URL=$AWS_ACCOUNT_ID_STAGING.dkr.ecr.$AWS_REGION.amazonaws.com/$APP_NAME
+      - TAG=`date  +"%Y%m%d_%H%M%S"`
+      - echo $REPO_URL
+      - echo $CODEBUILD_SOURCE_VERSION
+      - CONTAINER_NAME=asset
+      - docker rm $CONTAINER_NAME || true
+      - docker build -t $REPO_URL .
+      - docker run --name $CONTAINER_NAME $REPO_URL /app/scripts/assets
+      - docker cp $CONTAINER_NAME:/cache/public ./
+      - docker cp $CONTAINER_NAME:/app/public/assets ./public/
+      - docker rm $CONTAINER_NAME
+      - docker build -t $REPO_URL .
+      - docker tag $REPO_URL $REPO_URL:$TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker push $REPO_URL:$TAG
+      - docker push $REPO_URL:latest
+      - chmod +x scripts/deploy && scripts/deploy

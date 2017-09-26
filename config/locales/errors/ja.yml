@@ -1,0 +1,103 @@
+ja:
+  dictionary:
+    blank: &blank 入力してください。
+    errors_for_phone: &errors_for_phone ハイフンなし半角数字(7～15桁)で入力してください。
+    email_taken: &email_taken メールアドレスは既に登録済みです。ログインしてください。
+    email_invalid: &email_invalid 正しいメールアドレスを入力してください。
+    invalid_auth_info: &invalid_auth_info メールアドレスまたはパスワードが正しくありません。
+  # API Validation code and message
+  api_validation:
+    resources:
+      user: user
+      partner: partner
+    fields:
+      user:
+        name: name
+        phone: phone
+        email: email
+        password: password
+      partner:
+        phone: phone
+        email: email
+        password: password
+    codes:
+      blank: 1000
+      taken: 1001
+      invalid: 1002
+      too_short: 1003
+      too_long: 1004
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            name:
+              blank: *blank
+            email:
+              blank: *blank
+              taken: *email_taken
+              invalid: *email_invalid
+              only_half_size: *email_invalid
+            phone:
+              blank: *blank
+              invalid: ハイフンなし半角数字で入力してください。
+              too_short: *errors_for_phone
+              too_long: *errors_for_phone
+            password:
+              blank: *blank
+              invalid: 半角英数 8文字以上で入力してください。
+        partner:
+          attributes:
+            email:
+              blank: *blank
+              taken: *email_taken
+              invalid: *email_invalid
+              only_half_size: *email_invalid
+            phone:
+              blank: *blank
+              invalid: ハイフンなし半角数字で入力してください。
+              too_short: *errors_for_phone
+              too_long: *errors_for_phone
+            password:
+              blank: *blank
+              invalid: 半角英数 8文字以上で入力してください。
+  # API Error code and message
+  api_error:
+    sign_in:
+      none_activate:
+        code: 2000
+        message: アカウントが有効化されていません
+      invalid_info:
+        code: 2002
+        message: *invalid_auth_info
+    sign_out:
+      token_invalid:
+        code: 2004
+        message: アクセストークンが無効です
+    password_reset:
+      non_existing_email:
+        code: 2005
+        message: ご入力いただいたメールアドレスはご登録がありません。
+      non_matching_email:
+        code: 2006
+        message: メールアドレスが正しくありません。
+    auth_info_change:
+      invalid_auth_info:
+        code: 2001
+        message: *invalid_auth_info
+    user_request:
+      invalid_state:
+        code: 2003
+        message: 依頼状況の変更が正しく行われませんでした。もう1度お試しください。
+  # API Common Exception code and message
+  common_exception:
+    active_record:
+      record_not_found:
+        code: 3001
+        message: 該当するデータが見つかりませんでした
+      record_not_destroyed:
+        code: 3003
+        message: 削除できません
+    argument_error:
+      code: 3002
+      message: パラメータが不足しています。又は正しくありません

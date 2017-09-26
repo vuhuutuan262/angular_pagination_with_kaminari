@@ -1,0 +1,47 @@
+ja:
+  devise:
+    failure:
+      already_authenticated: "すでにログインしています。"
+      invalid: "メールアドレスまたはパスワードが違います。"
+      locked: "このアカウントではログインできません。"
+      not_found_in_database: "メールアドレスまたはパスワードが違います。"
+      timeout: "セッションがタイムアウトしました。もう一度ログインしてください。"
+      unauthenticated: "アカウント登録もしくはログインしてください。"
+    mailer:
+      reset_password_instructions:
+        subject: "パスワードの再設定について"
+      unlock_instructions:
+        subject: "アカウントの凍結解除について"
+      email_changed:
+        subject: "メールアドレスの変更について"
+      password_change:
+        subject: "パスワードの変更について"
+    passwords:
+      no_token: "このページにはアクセスできません。パスワード再設定メールのリンクからアクセスされた場合には、URLをご確認ください。"
+      send_instructions: "パスワードの再設定について数分以内にメールでご連絡いたします。"
+      send_paranoid_instructions: "あなたのメールアドレスが登録済みの場合、パスワード再設定用のメールが数分以内に送信されます。"
+      updated: "パスワードが正しく変更されました。"
+      updated_not_active: "パスワードが正しく変更されました。"
+    registrations:
+      destroyed: "アカウントを削除しました。またのご利用をお待ちしております。"
+      signed_up: "アカウント登録が完了しました。"
+      signed_up_but_locked: "このアカウントではログインできません。"
+      updated: "アカウント情報を変更しました。"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "ログアウトしました。"
+    unlocks:
+      send_instructions: "アカウントの凍結解除方法を数分以内にメールでご連絡します。"
+      send_paranoid_instructions: "アカウントが登録済みの場合、アカウントの凍結解除方法を数分以内にメールでご連絡します。"
+      unlocked: "アカウントを凍結解除しました。"
+  errors:
+    messages:
+      already_confirmed: "は既に登録済みです。ログインしてください。"
+      confirmation_period_expired: "の期限が切れました。%{period} までに確認する必要があります。 もう一度お試しください。"
+      expired: "の有効期限が切れました。もう一度お試しください。"
+      not_found: "は見つかりませんでした。"
+      not_locked: "は凍結されていません"
+      not_saved:
+        one: "エラーが発生したため %{resource} は保存されませんでした。"
+        other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"

@@ -1,0 +1,5 @@
+en:
+  activerecord:
+    errors:
+      messages:
+        record_invalid: Invalid input
